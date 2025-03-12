@@ -200,6 +200,7 @@ killall --quiet 'wpa_supplicant'
 # main loop between EAP methods
 for eap_method in "${EAP_METHOD_LIST[@]}"
 do
+    sudo rm -f /var/run/wpa_supplicant/${WIFI_INTERFACE}
     eap_config_file="${EAP_CONFIG_DIR}/${eap_method}.conf"
     if [ -f "${eap_config_file}" ] && [ -r "${eap_config_file}" ] && [ -w "${eap_config_file}" ]
     then
